@@ -63,3 +63,52 @@ for compare in compared:
     print(compare)
 
 # %%
+#5
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
+          "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
+          "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1, 
+          "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,"q":10,
+          "x": 8, "z": 10}
+class Game:
+    def generate_acronym(self,sentence: str):
+        sentence: list[str] = sentence.split()
+        if len(sentence) < 3:
+            print("Atleast 3 words needed to continue")
+            return
+
+        sortedsent= sorted(sentence, key=len)[-3:]
+        print(sorted)
+        return ''.join(word[0] for word in sortedsent)
+
+    def count_words(self,sentence):
+        sentence: list[str] = sentence.split()
+        words_in_sentence={}
+        for word in sentence:
+            word_exists= words_in_sentence.get(word) != None
+            if word_exists:
+                words_in_sentence[word] += 1
+            else:
+                words_in_sentence[word] = 1
+        return words_in_sentence
+    def scrabble_score(self,word):
+        return sum(score[letter] for letter in word)
+    
+    def random(self,broj:int):
+        final=""
+        if broj%3==0:
+            final+="pling"
+        if broj%5==0:
+            final+="plang"
+        if broj%7==0:
+            final+="plong"
+        
+        return final
+        
+
+
+scrabble=Game()
+print(scrabble.generate_acronym("You Only Live Once"))   
+print(scrabble.count_words("Yes No Yes No Yes No yes no yes no"))
+print(scrabble.scrabble_score("aeuiosfdadfsajhfsda"))
+print(scrabble.random(105))
+# %%
